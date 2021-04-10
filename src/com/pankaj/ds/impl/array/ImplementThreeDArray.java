@@ -58,7 +58,7 @@ public class ImplementThreeDArray {
                  }
              }
              System.out.println();
-         }*/
+         } */
          for( int [][] i:array)
          {
              for(int [] j: i)
