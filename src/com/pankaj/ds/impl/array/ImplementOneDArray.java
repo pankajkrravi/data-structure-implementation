@@ -5,6 +5,8 @@ import java.util.Scanner;
 /**
  * @Author pankaj
  * @create 09/04/21 5:14 PM
+ * Note: Arrays are Fixed in Size
+ *  Array store only homogeneous element
  */
 public class ImplementOneDArray {
     public static void main(String[] args) {

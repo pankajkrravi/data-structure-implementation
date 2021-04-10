@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @Author pankaj
  * @create 4/10/21 11:44 AM
  *
- In java multi dimensional array is  implemented as array os arrays concept or jagged array
+ In java multi dimensional array is  implemented as array of arrays concept or jagged array
  Note: In multidimensional array we must need to specify base size, and remaining can be ignored.
  */
 public class ImplementThreeDArray {
