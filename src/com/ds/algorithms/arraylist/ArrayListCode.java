@@ -28,5 +28,97 @@ retrieve the elements by their index
  */
 public class ArrayListCode {
 
+    private static final int INITIAL_CAPACITY=10;
+    private Object [] objectArray;
+    private int index;
+    private int size;
+    ArrayListCode()
+    {
+        this.objectArray=new Object[INITIAL_CAPACITY];
+        this.size=INITIAL_CAPACITY;
+    }
 
+    public void add(Object o)
+    {
+        System.out.println("index: "+this.index+" size: "+this.size+" Array size: "+this.objectArray.length);
+            //check whether array is full
+        if(this.index== this.size-1)
+        {
+            // Object array is full, in this case we need to increase Object Array
+            increaseObjectArray();
+        }
+        // array is not full
+        objectArray[index]=o;
+        this.index++;
+    }
+  private void increaseObjectArray()
+  {
+    this.size=this.size+INITIAL_CAPACITY;
+    //create new Object array and copy from older Array
+      Object[] newObjectArray=new Object[this.size];
+      for (int i=0;i<objectArray.length;i++)
+      {
+          newObjectArray[i]=objectArray[i];
+      }
+      this.objectArray=newObjectArray;
+      System.out.println(" ####### index ######  : "+this.index+" size : "+this.size+" array size : "+this.objectArray.length);
+  }
+
+ // code to get()
+    public Object get(int i) throws Exception
+    {
+        // data index is not present in array
+        if(i>this.index -1)
+        {
+            throw new Exception("ArrayIndexOutOfBoundsException");
+        } //-ve index is passed
+        else if(i<0)
+        {
+            throw new Exception("negative value !!!");
+        }
+         return this.objectArray[i];
+    }
+    // method to remove or delete element
+    public void remove(int i) throws Exception {
+        if(i>this.index-1)
+        {
+            throw  new Exception("ArrayIndexOutOfBoundsException !!!");
+        } else if(i<0)
+        {
+            throw new Exception("Negative Index !!!");
+        }
+         // code to delete object dfrom array
+        System.out.println("Object is deleted "+this.objectArray[i]);
+        for (int j=0;j<objectArray.length-1;j++)
+        {
+            objectArray[i]=objectArray[i+1];
+        }// decrease index by one after deletion of object
+        this.index--;
+    }
+
+    public static void main(String[] args) throws Exception {
+        ArrayListCode myArrayList=new ArrayListCode();
+        myArrayList.add(0);
+        myArrayList.add(1);
+        myArrayList.add("pankaj");
+        myArrayList.add("Ravi Kumar");
+        myArrayList.add(2);
+        myArrayList.add(3);
+        myArrayList.add(4);
+        myArrayList.add(5);
+        myArrayList.add(6);
+        myArrayList.add(7);
+        myArrayList.add(8);
+        myArrayList.add(9);
+        myArrayList.add(10);
+        System.out.println("Print address ::::::::: "+myArrayList);
+        System.out.println("index 9th element "+myArrayList.get(9));
+        //myArrayList.remove(10);
+        System.out.println("index 11th element "+myArrayList.get(11));
+        System.out.println("index 12th element "+myArrayList.get(12));
+        /* We can handle Error by using  try catch or,. directly throw Exception from main method
+        try {
+            System.out.println(myArrayList.get(9));
+        }catch (Exception e){ }*/
+    }
 }
