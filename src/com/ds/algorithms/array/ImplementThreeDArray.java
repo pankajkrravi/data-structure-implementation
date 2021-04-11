@@ -1,4 +1,4 @@
-package com.pankaj.ds.impl.array;
+package com.ds.algorithms.array;
 
 import java.util.Scanner;
 
