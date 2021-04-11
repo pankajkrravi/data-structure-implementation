@@ -28,7 +28,56 @@ public class LinkedList {
             travers.next=node;// newly created Node is pointing
         }
     }
+  // add at first
+    public void addAtFirst(int data)
+    {
+        Node node=new Node();
+        node.data=data;
+        node.next=null;
+        node.next=head; // newly created next value will be previous head node
+        // change newly created Node to Head
+        head=node;
+    }
 
+    // addAt index
+    public void addAtIndex(int index,int data)
+    {
+        Node node=new Node();
+        node.data=data;
+        node.next=null;
+        // add Node to 0th index--.> add it to first Location
+        if(index==0)
+        {
+            addAtFirst(data);
+        }else {
+            Node n = head;
+            for (int i = 0; i < index - 1; i++) {
+                n = n.next;
+            }
+            node.next = n.next;// change ref, index-1 Node to newly created Node
+            n.next = node;
+        }
+    }
+    // delete value
+    public void deleteAt(int index)
+    {
+        if(index==0)
+        {
+            head=head.next;
+
+        } else {
+            Node n=head;
+            Node nRef=null;
+            for (int i=0;i<index-1;i++) // reach to that specific index
+            {
+                    n=n.next;
+            }
+            // store ref of next Node of index element
+            nRef=n.next;
+            n.next=nRef.next;
+            System.out.println("   Deleted : INDEXED  "+ index+"  DATA "+nRef.data);
+        }
+    }
     // display method
     public void display()
     {

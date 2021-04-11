@@ -10,6 +10,11 @@ public class RunLinkedList {
             linkedList.add(10);
             linkedList.add(45);
             linkedList.add(78);
+            linkedList.addAtFirst(520);
+            linkedList.addAtIndex(3,300);
+            linkedList.addAtIndex(0,100);
+            linkedList.display();
+            linkedList.deleteAt(1);
             linkedList.display();
     }
 }
