@@ -1,5 +1,7 @@
 package com.ds.algorithms.linkedlist.DLLImplementation;
 
+import java.util.NoSuchElementException;
+
 /**
  * @Author pankaj
  * @create 4/12/21 7:05 PM
@@ -38,11 +40,13 @@ public class DoublyLinkedList {
     {
         return length;
     }
-    // print DLL in Forward Direction
-    public void printDLLFoeward()
+
+    //-------------------  print DLL in Forward Direction -----------------------
+    public void printDLLForward()
     {
-        if (head==null)
-            return;
+         if (head==null) {
+             return;
+         }
         Node traverse=head;
         while (traverse !=null)
         {
@@ -51,12 +55,12 @@ public class DoublyLinkedList {
         }
         System.out.println("null");
     }
-    // print DLL in backward Direction
+    // ------------------------ print DLL in Backward Direction ----------------------
     public void printDLLBackward()
     {
-         if (tail==null)
-             return;
-
+        if (tail==null) {
+            return;
+        }
         Node traverse=tail;
         while (traverse !=null)
         {
@@ -65,7 +69,7 @@ public class DoublyLinkedList {
         }
         System.out.println("null");
     }
-
+        //------------------- insertFirst ---------------------
         public void insertFirst(int data){
         Node newNode=new Node(data);
         if (isEmpty())
@@ -79,8 +83,7 @@ public class DoublyLinkedList {
         length++;
         }
 
-    // insertLast
-
+    // -----------------insertLast ------------------------------------------
     public void insertLast(int data)
     {
         Node newNode=new Node(data);
@@ -89,25 +92,73 @@ public class DoublyLinkedList {
             head=newNode;// head is constant
         } else {
             tail.next=newNode;//--------
+            newNode.previous=tail;
         }
-        newNode.previous=tail;
         tail=newNode;
         length++;
     }
+    // -------------------------------delete First ------------------------------
+    public Node deleteFirst()
+    {
+        if (isEmpty())
+        {
+            throw new NoSuchElementException("DLL is Already Empty !!!!");
+        }
+        Node newNode= head;
+        if (head == tail)
+        {
+            tail=null;
+        } else {
+            head.next.previous=null;
+        }
+        head=head.next;
+        newNode.next=null;
+        length--;
+        return newNode;
+    }
+    // ------------------ delete Last -------------------------
+        public Node deleteLast()
+        {
+            if(isEmpty()) {
+                throw new NoSuchElementException();
+            }
+            Node newNode=tail;
+            if (head==tail)
+            {
+                head=null;
+            } else {
+                tail.previous.next=null;
+            }
+            tail= tail.previous;
+            newNode.previous=null;
+            length--;
+            return newNode;
+        }
     public static void main(String[] args) {
         DoublyLinkedList dll=new DoublyLinkedList();
-            /*dll.insertLast(1);
-            dll.insertLast(2);
-            dll.insertLast(3);
-            dll.insertLast(4);
-            dll.insertLast(5);*/
-        dll.insertFirst(0);
+        /*dll.insertFirst(0);
         dll.insertFirst(1);
         dll.insertFirst(5);
         dll.insertFirst(7);
         dll.insertFirst(9);
         dll.insertFirst(12);
-        dll.printDLLFoeward();
+        dll.printDLLForward();*/
+        // dll.printDLLBackward();
+
+        dll.insertLast(1);
+        dll.insertLast(2);
+        dll.insertLast(3);
+        dll.insertLast(4);
+        dll.insertLast(5);
+
+        dll.printDLLForward();
         dll.printDLLBackward();
+        System.out.println("----------------------------------------");
+        // dll.deleteFirst();
+        //dll.printDLLForward();
+        // dll.deleteFirst();
+        // dll.deleteFirst();
+        dll.deleteLast();
+        dll.printDLLForward();
     }
 }
