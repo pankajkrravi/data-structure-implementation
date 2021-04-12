@@ -1,4 +1,4 @@
-package com.ds.algorithms.linkedlist.customImplement;
+package com.ds.algorithms.linkedlist.SLLcustomImplement;
 
 /**
  * @Author pankaj

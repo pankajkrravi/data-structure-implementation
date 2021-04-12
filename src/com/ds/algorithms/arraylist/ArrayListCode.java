@@ -87,7 +87,7 @@ public class ArrayListCode {
         {
             throw new Exception("Negative Index !!!");
         }
-         // code to delete object dfrom array
+         // code to delete object from array
         System.out.println("Object is deleted "+this.objectArray[i]);
         for (int j=0;j<objectArray.length-1;j++)
         {
@@ -116,6 +116,8 @@ public class ArrayListCode {
         //myArrayList.remove(10);
         System.out.println("index 11th element "+myArrayList.get(11));
         System.out.println("index 12th element "+myArrayList.get(12));
+        myArrayList.remove(2);
+        System.out.println(myArrayList.get(2));
         /* We can handle Error by using  try catch or,. directly throw Exception from main method
         try {
             System.out.println(myArrayList.get(9));
