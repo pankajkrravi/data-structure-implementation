@@ -1,4 +1,4 @@
-package com.ds.algorithms.CircularSLL;
+package com.ds.algorithms.linkedlist.CircularSLL;
 
 /**
  * @Author pankaj
