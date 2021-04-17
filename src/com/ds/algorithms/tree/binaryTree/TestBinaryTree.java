@@ -10,8 +10,15 @@ public class TestBinaryTree {
         binaryTree.createBinaryTree();
         //binaryTree.preOrder(binaryTree.root);
         //binaryTree.preOrderIterative();
+
         //System.out.println();
         //binaryTree.inOrder(binaryTree.root);
-        binaryTree.inOrderIterative(binaryTree.root);
+
+       // binaryTree.inOrderIterative(binaryTree.root);
+        /*System.out.println("------------ postOrder using recursion -----------");
+        binaryTree.postOrder(binaryTree.root);
+        */
+        System.out.println("------------ postOrder using iterative -----------");
+        binaryTree.postOrderIterative();
     }
 }
