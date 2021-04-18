@@ -6,8 +6,8 @@ package com.ds.algorithms.tree.binarySearchTree;
  */
 public class BinarySearchTree {
         TreeNode root;
-    private class TreeNode {
-        private int data;//Generic type
+    public class TreeNode {
+         int data;//Generic type
         private TreeNode left;
         private TreeNode right;
         public TreeNode(int data)
@@ -44,6 +44,20 @@ public class BinarySearchTree {
         inOrder(root.left);
         System.out.print(root.data+" ");
         inOrder(root.right);
-
     }
+     // ================== search a given key in a Binary Search Tree (Recursive) ==============
+    public TreeNode search(int key)
+    {
+       return search(root,key);
+    }
+    public TreeNode search(TreeNode root,int key) {
+        if (root == null || root.data == key) { // base case
+                return root;
+            }
+            if (key < root.data) {
+                return search(root.left, key);
+            } else {
+               return search(root.right,key);
+            }
+        }
 }

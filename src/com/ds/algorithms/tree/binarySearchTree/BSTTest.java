@@ -14,5 +14,10 @@ public class BSTTest {
         binarySearchTree.insert(7);
         binarySearchTree.insert(1);
         binarySearchTree.inOrder();
+        System.out.println();
+        if (binarySearchTree.search(72) != null)
+            System.out.println("FOUND !!!!!!!!!!!!!!");
+         else
+             System.out.println("!!!!!!!!! NOT FOUND !!!!!");
     }
 }
