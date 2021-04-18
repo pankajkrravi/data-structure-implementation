@@ -18,7 +18,8 @@ public class TestBinaryTree {
         /*System.out.println("------------ postOrder using recursion -----------");
         binaryTree.postOrder(binaryTree.root);
         */
-        System.out.println("------------ postOrder using iterative -----------");
-        binaryTree.postOrderIterative();
+       /* System.out.println("------------ postOrder using iterative -----------");
+        binaryTree.postOrderIterative();*/
+        binaryTree.levelOrder();
     }
 }

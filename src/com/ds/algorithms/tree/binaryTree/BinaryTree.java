@@ -1,7 +1,7 @@
 package com.ds.algorithms.tree.binaryTree;
 
-import com.ds.algorithms.tree.Tree;
-
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -9,13 +9,13 @@ import java.util.Stack;
  * @create 4/17/21 2:11 PM
  */
 public class BinaryTree {
-     TreeNode root;
+    public TreeNode root;
 
-    class TreeNode
+   public class TreeNode
     {
-        private TreeNode left;
-        private TreeNode right;
-        private int data;//generic type
+       public   TreeNode left;
+        public TreeNode right;
+        public int data;//generic type
         TreeNode(int data)
         {
             this.data= data;
@@ -141,5 +141,27 @@ public class BinaryTree {
             }
         }
         System.out.println();
+    }
+     // ================== Level Order traversal ===================
+    // offer--> means enqueue operation, poll --> remove
+    public void levelOrder(){
+        if (root == null)
+        {
+            return;
+        }
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty())
+        {
+            TreeNode temp=queue.poll();
+            System.out.print(temp.data+" ");
+            if (temp.left != null)
+            {
+                queue.offer(temp.left);
+            }if (temp.right != null)
+             {
+            queue.offer(temp.right);
+           }
+        }
     }
 }
