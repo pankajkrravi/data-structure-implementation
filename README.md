@@ -1,6 +1,6 @@
 # data-structure-implementation
 #data-structure-implementation in java
-#programming linked-list 
+# linked-list 
 stack 
 queue 
 graph 
