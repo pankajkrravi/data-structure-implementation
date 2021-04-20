@@ -11,6 +11,6 @@ public class TestUndirectedGraph {
         graph.addEdge(1,2);
         graph.addEdge(2,3);
         graph.addEdge(3,0);
-
+        System.out.println(graph);
     }
 }

@@ -19,6 +19,22 @@ public class Graph {
     public void addEdge(int u,int v)
     {
         adjMatrix[u][v] = 1;// 1 represent edge
-        adjMatrix[v][u] = 1;
+        adjMatrix[v][u] = 1;// because it's an unidirectional graph
+        E++;
+    }
+     // =========== toString ==================
+    public String toString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(V+" Vertices "+ E + " Edges " + "\n");
+        for (int v=0;v<V;v++) {
+            stringBuilder.append(v+" : ");
+            for ( int w: adjMatrix[v])
+            {
+                stringBuilder.append(w+" ");
+            }
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
     }
 }
