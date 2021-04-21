@@ -1,6 +1,8 @@
 package com.ds.algorithms.graphs.adjacencyListOfUnidirectional;
 
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @Author pankaj
@@ -38,14 +40,63 @@ public class Graph {
         }
         return sb.toString();
      }
+    // ============ Breadth First Search(BFS)--> traverse the graph Level Bu level =============
+     public void bfs(int source) {
+        // Track the visited nodes
+         boolean[] visited=new boolean[V];
+         Queue<Integer> q=new LinkedList<>();
+         visited[source] =true;
+         q.offer(source);
 
+         while (!q.isEmpty())
+         {
+             int u=q.poll();
+             System.out.print(u+" ");
+             // traverse adjacency Nodes
+             for (int v : adj[u]) {
+                if (!visited[v])
+                {
+                    visited[v]= true;
+                    q.offer(v);
+                }
+             }
+         }
+     }
+      // ============== DFS =================
+        public void dfs(int s)
+        {
+            boolean[] visited=new boolean[V];
+            //to perform DFS
+            Stack<Integer> stack=new Stack<>();
+        stack.push(s);
+        while (!stack.isEmpty())
+        {
+            int u=stack.pop();
+            // check whether we visited u or not
+            if (!visited[u])
+            {
+                visited[u] = true;
+                System.out.print(u+" ");
+                for (int v: adj[u]){ // get all the adjency node and iterate it
+            if (!visited[v])
+            {
+                stack.push(v);
+            }
+                }
+            }
+        }
+        }
         // ============= main test Code =========
         public static void main(String[] args) {
-            Graph graph=new Graph(4);
+            Graph graph=new Graph(5);
             graph.addEdge(0,1);
             graph.addEdge(1,2);
             graph.addEdge(2,3);
             graph.addEdge(3,0);
-            System.out.println(graph);
+            graph.addEdge(2,4);
+            graph.bfs(0);
+            //System.out.println(graph);
+            System.out.println("========== DFS =========");
+            graph.dfs(0);
         }
 }
