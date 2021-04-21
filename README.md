@@ -19,3 +19,7 @@ space-complexity-analysis
 time-complexity-analysis q
 ueue-implementation
 breadth-first-search
+
+Searching Algirithm 119 to 127 - TO DO
+Dynamic Prigramming 146 to 150
+Pending 150 to 170
